@@ -1,21 +1,16 @@
 package core.preprocess;
 
-import edu.stanford.nlp.ling.WordTag;
 import org.apache.log4j.Logger;
-import vn.hus.nlp.sd.SentenceDetector;
-import vn.hus.nlp.tagger.VietnameseMaxentTagger;
 
-import java.io.*;
+import java.io.File;
 import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class WordPreprocessor {
     private static final Logger LOGGER = Logger.getLogger(WordPreprocessor.class);
-    private static final String MODEL_SENTDETECTOR = "models\\sentDetection\\VietnameseSD.bin.gz";
     private static WordPreprocessor WORD_PREPROCESSOR = null;
     private static String[] stw = new String[]{
             "bị", "bởi", "cả", "các", "cái", "cần", "càng", "chỉ", "chiếc", "cho", "chứ", "chưa", "chuyện", "có", "có_thể",
@@ -32,17 +27,6 @@ public class WordPreprocessor {
             "là", "và", "của", "thực_sự", "ở_trên", "tất_cả", "dưới", "hầu_hết", "luôn", "giữa", "bất_kỳ", "hỏi", "bạn", "cô",
             "tôi", "tớ", "cậu", "bác", "chú", "dì", "thím", "cậu", "mợ", "ông", "bà", "em", "thường", "ai", "cảm_ơn"
     };
-    private SentenceDetector sentenceDetector = null;
-    private VietnameseMaxentTagger tagger = null;
-
-    private WordPreprocessor() {
-        try {
-            sentenceDetector = new SentenceDetector(MODEL_SENTDETECTOR);
-            tagger = new VietnameseMaxentTagger();
-        } catch (IOException e) {
-            LOGGER.error(e);
-        }
-    }
 
     public static WordPreprocessor getInstance() {
         if (WORD_PREPROCESSOR == null)
@@ -78,7 +62,7 @@ public class WordPreprocessor {
                 ArrayList<String> words = getWords(sentences.get(i));
                 for (String word : words) {
                     putToMap(map, word, i);
-                    if(word.compareTo(convertStringToURL(word)) != 0)
+                    if (word.compareTo(convertStringToURL(word)) != 0)
                         putToMap(map, convertStringToURL(word), i);
                 }
             }
@@ -124,7 +108,7 @@ public class WordPreprocessor {
         String[] words = sentence.split("\\s+");
         for (int j = 0; j < words.length; j++) {
             String word = words[j].replaceAll("[!@#$%^&*(),.?\":\\{\\}|<>\\-+/]", " ").trim().toLowerCase();
-            if(!word.isEmpty())
+            if (!word.isEmpty())
                 wordList.add(word);
         }
 

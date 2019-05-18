@@ -1,6 +1,5 @@
-import core.algorithm.BM25Engine;
 import core.algorithm.EngineManger;
-import core.algorithm.ReverseIndexEngine;
+import core.algorithm.SearchEngine;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
@@ -18,23 +17,21 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        SearchEngine engine = new SearchEngine();
+//        engine.train("src/main/resources/product_names.txt");
         try {
-            EngineManger manger = new EngineManger();
-//            manger.train("src/main/resources/product_names.txt");
-//            ReverseIndexEngine engine = manger.getReverseIndexEngine();
-            BM25Engine engine = manger.getBm25Engine();
-            while(true) {
+            engine.loadModel();
+            while (true) {
                 System.out.print("plead input query: ");
                 Scanner inp = new Scanner(System.in);
                 String cmd = inp.nextLine();
-                if(cmd.isEmpty())
+                if (cmd.isEmpty())
                     break;
 
-                ArrayList<String> foundedProducts = engine.findProducts(cmd);
+                ArrayList<String> foundedProducts = engine.findProducts(cmd, true);
                 if (foundedProducts == null || foundedProducts.isEmpty())
                     System.out.println("not found any matched product!");
-                else
-                {
+                else {
                     System.out.println("found " + foundedProducts.size() + " products");
                     for (String product : foundedProducts) {
                         System.out.println(product);

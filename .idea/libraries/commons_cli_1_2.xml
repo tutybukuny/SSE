@@ -1,19 +1,6 @@
 <component name="libraryTable">
   <library name="commons-cli-1.2">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/libs/commons-cli-1.2.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/edu.stanford.nlp.tagger-2.0.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/JTattoo-1.6.11.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/maxent-2.5.2.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/opennlp-tools-1.4.3.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/trove.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/vn.hus.nlp.fsm-1.0.0.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/vn.hus.nlp.sd-2.0.0.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/vn.hus.nlp.tagger-4.2.0.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/vn.hus.nlp.tokenizer-4.1.1.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/vn.hus.nlp.utils-1.0.0.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/weblaf-complete-1.29.jar!/" />
-    </CLASSES>
+    <CLASSES />
     <JAVADOC />
     <SOURCES />
   </library>
