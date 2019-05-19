@@ -31,7 +31,7 @@ public class WordPreprocessor {
         try {
             String temp = Normalizer.normalize(str, Normalizer.Form.NFD);
             Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
-            return pattern.matcher(temp).replaceAll("").toLowerCase().replaceAll("đ", "d");
+            return pattern.matcher(temp).replaceAll("").replaceAll("đ", "d").replaceAll("Đ", "D");
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -67,29 +67,6 @@ public class WordPreprocessor {
                 List<Integer> subIndexes = nonAccentWordSegment.getDocumentIndexes().stream().filter(integer -> !wordSegment.existsInDocument(integer)).collect(Collectors.toList());
                 wordSegment.setSubDocumentIndexes(new ArrayList<>(subIndexes));
             }
-        }
-
-        return map;
-    }
-
-    /**
-     * create map from a input file
-     *
-     * @param pathToDataData
-     * @return map of WordSegment
-     */
-    public HashMap<String, WordSegment> createWordSegmentDictionary(String pathToDataData) {
-        HashMap<String, WordSegment> map = null;
-
-        try {
-            Scanner inp = new Scanner(new File(pathToDataData));
-            ArrayList<String> sentences = new ArrayList<>();
-            while (inp.hasNext()) {
-                sentences.add(inp.nextLine());
-            }
-            map = createWordSegmentDictionary(sentences);
-        } catch (Exception ex) {
-            LOGGER.error(ex);
         }
 
         return map;

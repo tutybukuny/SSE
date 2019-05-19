@@ -77,4 +77,30 @@ public class WordSegment implements Comparable<WordSegment>, Serializable {
     public int compareTo(WordSegment o) {
         return this.documentIndexes.size() - o.getDocumentIndexesSize();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null || obj.getClass() != this.getClass())
+            return false;
+
+        WordSegment wordSegment = (WordSegment) obj;
+
+        boolean equal = wordSegment.getDocumentIndexesSize() == documentIndexes.size() && wordSegment.getSubDocumentIndexes().size() == subDocumentIndexes.size() &&
+                wordSegment.isNonAccent() == isNonAccent();
+
+        if (equal) {
+            ArrayList<Integer> allIndexes = getAllDocumentIndexes();
+            ArrayList<Integer> objIndexes = wordSegment.getAllDocumentIndexes();
+            for (int i = 0; i < allIndexes.size(); i++) {
+                if (allIndexes.get(i) != objIndexes.get(i)) {
+                    equal = false;
+                    break;
+                }
+            }
+        }
+
+        return equal;
+    }
 }

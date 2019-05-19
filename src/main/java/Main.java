@@ -9,13 +9,14 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
-    final static Logger LOGGER = Logger.getLogger(Main.class);
-    private static SearchEngine engine = null;
-
     static {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-hh-mm-ss");
         System.setProperty("current.date.time", dateFormat.format(new Date()));
     }
+
+    final static Logger LOGGER = Logger.getLogger(Main.class);
+
+    private static SearchEngine engine = null;
 
     public static void main(String[] args) {
         try {

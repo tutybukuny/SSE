@@ -90,23 +90,13 @@ public class SearchEngine {
      * Get all WordSegment of the word that in the input words list
      *
      * @param words
-     * @param includedNonAccentWord turn on to include non-accent word
      * @return list of WordSegments
      */
-    public ArrayList<WordSegment> getWordSegments(ArrayList<String> words, boolean includedNonAccentWord) {
+    public ArrayList<WordSegment> getWordSegments(ArrayList<String> words) {
         ArrayList<WordSegment> wordSegments = new ArrayList<>();
         for (String word : words) {
             if (model.containsKey(word))
                 wordSegments.add(model.get(word));
-        }
-
-        // I'm not put this on the first for loop because I want the non-accent words have lower priority than accent one
-        if (includedNonAccentWord) {
-            for (String word : words) {
-                String removedAccentWord = WordPreprocessor.getInstance().convertToNonAccentWord(word);
-                if (removedAccentWord.compareTo(word) != 0 && model.containsKey(removedAccentWord))
-                    wordSegments.add(model.get(removedAccentWord));
-            }
         }
 
         return wordSegments;
@@ -163,7 +153,7 @@ public class SearchEngine {
     private ArrayList<String> findProductsUsingReverseIndex(String query) {
         ArrayList<String> words = WordPreprocessor.getInstance().getWords(query);
         HashMap<Integer, Product> foundedProductIndexes = new HashMap<>();
-        ArrayList<WordSegment> wordSegments = getWordSegments(words, false);
+        ArrayList<WordSegment> wordSegments = getWordSegments(words);
 
         if (!wordSegments.isEmpty()) {
             /// I set the grade = 1.000001 to put the accent result on the top
@@ -210,7 +200,7 @@ public class SearchEngine {
         double docCount = products.size();
 
         HashMap<Integer, Product> foundedProductIndexes = new HashMap<>();
-        ArrayList<WordSegment> wordSegments = getWordSegments(words, false);
+        ArrayList<WordSegment> wordSegments = getWordSegments(words);
 
         /// instead of calculating the bm25 grade for all product, we just calculate the products that contain at least one word appearing in the query
         /// this way would save our time in most of cases
