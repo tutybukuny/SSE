@@ -11,14 +11,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class EngineManger {
-    private static final Logger LOGGER = Logger.getLogger(EngineManger.class);
+public class EngineManager {
+    private static final Logger LOGGER = Logger.getLogger(EngineManager.class);
 
     private IOManager ioManager = null;
     private BM25Engine bm25Engine = null;
     private ReverseIndexEngine reverseIndexEngine = null;
 
-    public EngineManger() {
+    public EngineManager() {
         ioManager = new IOManager(ConfigurationManager.MODEL_PATH);
         bm25Engine = new BM25Engine();
         reverseIndexEngine = new ReverseIndexEngine();

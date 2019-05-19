@@ -1,7 +1,7 @@
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import thienthn.core.algorithm.EngineManger;
+import thienthn.core.algorithm.EngineManager;
 import thienthn.core.algorithm.SearchEngine;
 import thienthn.core.common.Product;
 
@@ -9,16 +9,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class ReverseIndexEngineTest {
-    static EngineManger engineManger = new EngineManger();
+    static EngineManager engineManager = new EngineManager();
 
     @BeforeClass
     public static void beforeClass() {
-        engineManger = new EngineManger();
+        engineManager = new EngineManager();
     }
 
     @Test
     public void testFindProductsMethod() {
-        SearchEngine engine = engineManger.getReverseIndexEngine();
+        SearchEngine engine = engineManager.getReverseIndexEngine();
         engine.train(null, null);
         boolean throwException = false;
         try {
@@ -30,7 +30,7 @@ public class ReverseIndexEngineTest {
         Assert.assertTrue(throwException);
 
         try {
-            engineManger.loadModel();
+            engineManager.loadModel();
             ArrayList<Product> results = engine.findProducts("awordthathaveneverbeenexisted");
             Assert.assertTrue(results.isEmpty());
 
@@ -50,7 +50,7 @@ public class ReverseIndexEngineTest {
 
     @Test
     public void testFindProductNamesMethod() {
-        SearchEngine engine = engineManger.getReverseIndexEngine();
+        SearchEngine engine = engineManager.getReverseIndexEngine();
         engine.train(null,null);
         boolean throwException = false;
         try {
@@ -62,7 +62,7 @@ public class ReverseIndexEngineTest {
         Assert.assertTrue(throwException);
 
         try {
-            engineManger.loadModel();
+            engineManager.loadModel();
             ArrayList<String> results = engine.findProductNames("awordthathaveneverbeenexisted");
             Assert.assertTrue(results.isEmpty());
 

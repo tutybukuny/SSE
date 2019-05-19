@@ -1,5 +1,5 @@
 import org.apache.log4j.Logger;
-import thienthn.core.algorithm.EngineManger;
+import thienthn.core.algorithm.EngineManager;
 import thienthn.core.algorithm.SearchEngine;
 import thienthn.core.common.ConfigurationManager;
 
@@ -19,7 +19,7 @@ public class Main {
     final static Logger LOGGER = Logger.getLogger(Main.class);
 
     private static SearchEngine engine = null;
-    private static EngineManger engineManger = null;
+    private static EngineManager engineManager = null;
 
     public static void main(String[] args) {
         try {
@@ -31,12 +31,12 @@ public class Main {
         boolean isTrained = false;
 
         try {
-            engineManger = new EngineManger();
-            engineManger.loadModel();
+            engineManager = new EngineManager();
+            engineManager.loadModel();
             if(ConfigurationManager.BM25_ALGORITHM)
-                engine = engineManger.getBm25Engine();
+                engine = engineManager.getBm25Engine();
             else
-                engine = engineManger.getReverseIndexEngine();
+                engine = engineManager.getReverseIndexEngine();
             isTrained = true;
         } catch (IOException e) {
             LOGGER.error("cannot load model file", e);
@@ -126,11 +126,11 @@ public class Main {
     public static boolean trainEngine(Scanner console) {
         System.out.print("Please input the data file path to train it: ");
         String dataFilePath = console.next();
-        boolean result = engineManger.train(dataFilePath);
+        boolean result = engineManager.train(dataFilePath);
         if(ConfigurationManager.BM25_ALGORITHM)
-            engine = engineManger.getBm25Engine();
+            engine = engineManager.getBm25Engine();
         else
-            engine = engineManger.getReverseIndexEngine();
+            engine = engineManager.getReverseIndexEngine();
         return result;
     }
 }

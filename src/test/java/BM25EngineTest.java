@@ -2,7 +2,7 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import thienthn.core.algorithm.BM25Engine;
-import thienthn.core.algorithm.EngineManger;
+import thienthn.core.algorithm.EngineManager;
 import thienthn.core.algorithm.SearchEngine;
 import thienthn.core.common.Product;
 
@@ -12,13 +12,13 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 public class BM25EngineTest {
-    static EngineManger engineManger;
+    static EngineManager engineManager;
 
     @BeforeClass
     public static void beforeClass() {
-        engineManger = new EngineManger();
+        engineManager = new EngineManager();
         try {
-            engineManger.loadModel();
+            engineManager.loadModel();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -28,7 +28,7 @@ public class BM25EngineTest {
 
     @Test
     public void testFindProductsMethod() {
-        SearchEngine engine = engineManger.getBm25Engine();
+        SearchEngine engine = engineManager.getBm25Engine();
         engine.train(null,null);
         boolean throwException = false;
 
@@ -52,7 +52,7 @@ public class BM25EngineTest {
         Assert.assertTrue(throwException);
 
         try {
-            engineManger.loadModel();
+            engineManager.loadModel();
             ArrayList<Product> results = engine.findProducts("awordthathaveneverbeenexisted");
             Assert.assertTrue(results.isEmpty());
 
@@ -72,7 +72,7 @@ public class BM25EngineTest {
 
     @Test
     public void testFindProductNamesMethod() {
-        SearchEngine engine = engineManger.getBm25Engine();
+        SearchEngine engine = engineManager.getBm25Engine();
         engine.train(null,null);
         boolean throwException = false;
 
@@ -85,7 +85,7 @@ public class BM25EngineTest {
         Assert.assertTrue(throwException);
 
         try {
-            engineManger.loadModel();
+            engineManager.loadModel();
             ArrayList<String> results = engine.findProductNames("awordthathaveneverbeenexisted");
             Assert.assertTrue(results.isEmpty());
 
@@ -107,7 +107,7 @@ public class BM25EngineTest {
     public void testCalculateBM25GradeMethod() {
         try {
             Class<?>[] methodArgumentTypes = new Class[]{String.class, String.class, double.class, double.class, double.class};
-            BM25Engine engine = engineManger.getBm25Engine();
+            BM25Engine engine = engineManager.getBm25Engine();
             Method method = engine.getClass().getDeclaredMethod("calculateBM25Grade", methodArgumentTypes);
             method.setAccessible(true);
             String productName = "the gioi phang phang";

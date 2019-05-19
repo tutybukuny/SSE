@@ -1,7 +1,7 @@
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import thienthn.core.algorithm.EngineManger;
+import thienthn.core.algorithm.EngineManager;
 import thienthn.core.algorithm.SearchEngine;
 import thienthn.core.common.Product;
 
@@ -11,13 +11,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class SearchEngineTest {
-    static EngineManger engineManger = new EngineManger();
+    static EngineManager engineManager = new EngineManager();
 
     @BeforeClass
     public static void beforeClass() {
-        engineManger = new EngineManger();
+        engineManager = new EngineManager();
         try {
-            engineManger.loadModel();
+            engineManager.loadModel();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -27,7 +27,7 @@ public class SearchEngineTest {
 
     @Test
     public void testExcuseQueriesMethod() {
-        SearchEngine engine = engineManger.getReverseIndexEngine();
+        SearchEngine engine = engineManager.getReverseIndexEngine();
         boolean throwException = false;
         try {
             engine.excuseQueries("", "");
@@ -49,7 +49,7 @@ public class SearchEngineTest {
 
     @Test
     public void testSortProductsMethod() {
-        SearchEngine engine = engineManger.getReverseIndexEngine();
+        SearchEngine engine = engineManager.getReverseIndexEngine();
         HashMap<Integer, Product> productMap = new HashMap<>();
         productMap.put(0, new Product(0, "product 0"));
         productMap.put(1, new Product(1, "product 1"));
