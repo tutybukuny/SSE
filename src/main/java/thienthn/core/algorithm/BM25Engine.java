@@ -1,6 +1,7 @@
 package thienthn.core.algorithm;
 
 import org.apache.log4j.Logger;
+import thienthn.core.common.ConfigurationManager;
 import thienthn.core.common.Product;
 import thienthn.core.preprocess.WordPreprocessor;
 import thienthn.core.preprocess.WordSegment;
@@ -16,11 +17,15 @@ public class BM25Engine extends SearchEngine {
     @Override
     public void train(ArrayList<String> products, HashMap<String, WordSegment> model) {
         super.train(products, model);
-        for (String product : products) {
-            averageFieldLength += product.split("\\s+").length;
-        }
 
-        averageFieldLength /= products.size();
+        if(products != null) {
+            for (String product : products) {
+                averageFieldLength += product.split("\\s+").length;
+            }
+
+            averageFieldLength /= products.size();
+        } else
+            averageFieldLength = 0;
     }
 
     @Override
@@ -86,8 +91,8 @@ public class BM25Engine extends SearchEngine {
      */
     private double calculateBM25Grade(String productName, String word, double docCount, double docFreq, double queryLength) {
         double L = queryLength / averageFieldLength;
-        double k = 1.2;
-        double b = 0.75;
+        double k = ConfigurationManager.K_CONST;
+        double b = ConfigurationManager.B_CONST;
         ArrayList<String> productWords = WordPreprocessor.getInstance().getWords(productName);
         double freq = productWords.stream().filter(w -> w.compareTo(word) == 0).count();
         double idf = Math.log(1 + (docCount - docFreq + 0.5) / (docFreq + 0.5));
