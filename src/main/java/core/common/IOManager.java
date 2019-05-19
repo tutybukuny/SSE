@@ -133,7 +133,8 @@ public class IOManager {
      */
     public void writeTextToFile(ArrayList<String> lines, String pathToDestinationFile) throws IOException {
         File file = new File(pathToDestinationFile);
-        file.getParentFile().mkdirs();
+        if (!file.getParentFile().exists())
+            file.getParentFile().mkdirs();
         Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF8"));
         for (String line : lines) {
             writer.append(line + "\r\n");

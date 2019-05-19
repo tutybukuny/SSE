@@ -121,11 +121,11 @@ public class SearchEngine {
         return productResults;
     }
 
-    public void excuseQueries(String pathToQueryFile, String pathToDestinationFolder, boolean isUsingBM25) throws FileNotFoundException {
+    public void excuseQueries(String pathToQueryFile, String pathToDestinationFolder, boolean isUsingBM25) throws IOException {
         ArrayList<String> queries = ioManager.readLines(pathToQueryFile);
         for (String query : queries) {
             ArrayList<String> results = findProducts(query, isUsingBM25);
-
+            ioManager.writeTextToFile(results, pathToDestinationFolder + "/" + query + ".txt");
         }
     }
 
