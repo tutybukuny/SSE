@@ -20,7 +20,8 @@ public class Main {
 //        engine.train("src/main/resources/product_names.txt");
         try {
             engine.loadModel();
-            engine.excuseQueries("src/main/resources/100_query.txt", "results", true);
+            engine.excuseQueries("src/main/resources/100_query.txt", "results/bm25", true);
+            engine.excuseQueries("src/main/resources/100_query.txt", "results/reverse_index", false);
             while (true) {
                 System.out.print("please input query: ");
                 Scanner inp = new Scanner(System.in);

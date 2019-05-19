@@ -92,10 +92,12 @@ public class SearchEngine {
         for (String word : words) {
             if (model.containsKey(word))
                 wordSegments.add(model.get(word));
+        }
 
-            if (includedNonAccentWord) {
+        // I'm not put this on the first for loop because I want the non-accent words have lower priority than accent one
+        if (includedNonAccentWord) {
+            for (String word : words) {
                 String removedAccentWord = WordPreprocessor.getInstance().convertToNonAccentWord(word);
-                /// only find non-accent query if current query is accent
                 if (removedAccentWord.compareTo(word) != 0 && model.containsKey(removedAccentWord))
                     wordSegments.add(model.get(removedAccentWord));
             }
@@ -115,6 +117,7 @@ public class SearchEngine {
         ArrayList<Product> sortedProductResults = new ArrayList<>(products.values());
         Collections.sort(sortedProductResults, (o1, o2) -> o1.getGrade() < o2.getGrade() ? 1 : (o1.getGrade() == o2.getGrade() ? 0 : -1));
         for (Product product : sortedProductResults) {
+//            System.out.println(product.getProductName() + " " + product.getGrade());
             productResults.add(product.getProductName());
         }
 
@@ -154,18 +157,29 @@ public class SearchEngine {
     private ArrayList<String> findProductsUsingReverseIndex(String query) {
         ArrayList<String> words = WordPreprocessor.getInstance().getWords(query);
         HashMap<Integer, Product> foundedProductIndexes = new HashMap<>();
-        ArrayList<WordSegment> wordSegments = getWordSegments(words, true);
+        ArrayList<WordSegment> wordSegments = getWordSegments(words, false);
 
         if (!wordSegments.isEmpty()) {
+            /// I set the grade = 1.000001 to put the accent result on the top
+            /// a little bit 0.000001 helps me on the situation that we have the same number of accent words and non-accent word
+            /// Is this right? Bases on real life, we want accent result to stay on the top hơn mà :D???
             for (WordSegment wordSegment : wordSegments) {
-                ArrayList<Integer> documentIndexes = wordSegment.getDocumentIndexes();
-                for (Integer index : documentIndexes) {
+                ArrayList<Integer> documentIndexes = wordSegment.getAllDocumentIndexes();
+                int boundary = wordSegment.getDocumentIndexesSize();
+                for (int i = 0; i < documentIndexes.size(); i++) {
+                    Integer index = documentIndexes.get(i);
                     if (index >= products.size())
                         continue;
                     Product product = foundedProductIndexes.get(index);
                     if (product == null)
                         product = new Product(index, products.get(index));
-                    product.setGrade(product.getGrade() + 1);
+                    double grade = 1;
+                    if (!wordSegment.isNonAccent()) {
+                        if (i < boundary)
+                            grade = 1.000001;
+                    } else if (i > boundary)
+                        grade = 1.000001;
+                    product.setGrade(product.getGrade() + grade);
                     foundedProductIndexes.put(index, product);
                 }
             }
@@ -193,20 +207,20 @@ public class SearchEngine {
         ArrayList<WordSegment> wordSegments = getWordSegments(words, false);
 
         for (WordSegment wordSegment : wordSegments) {
-            ArrayList<Integer> productIndexes = wordSegment.getDocumentIndexes();
-            String nonAccentWord = WordPreprocessor.getInstance().convertToNonAccentWord(wordSegment.getWord());
-            boolean isNonAccentWord = nonAccentWord.compareTo(wordSegment.getWord()) == 0;
-            if (!isNonAccentWord)
-                productIndexes = model.get(nonAccentWord).getDocumentIndexes();
-            for (Integer index : productIndexes) {
+            ArrayList<Integer> productIndexes = wordSegment.getAllDocumentIndexes();
+            int boundary = wordSegment.getDocumentIndexesSize();
+            for (int i = 0; i < productIndexes.size(); i++) {
+                Integer index = productIndexes.get(i);
                 String productName = products.get(index).toLowerCase();
-                if (isNonAccentWord)
+                double grade = 0;
+                if(i < boundary) {
+                    grade = calculateBM25Grade(productName, wordSegment.getWord(), docCount, wordSegment.getDocumentIndexesSize(), queryLength);
+                } else {
                     productName = WordPreprocessor.getInstance().convertToNonAccentWord(productName);
-                double grade = calculateBM25Grade(productName, wordSegment, docCount, wordSegment.getDocumentIndexesSize(), queryLength);
-                if (!isNonAccentWord) {
-                    WordSegment nonAccentWordSegment = model.get(nonAccentWord);
-                    grade += calculateBM25Grade(WordPreprocessor.getInstance().convertToNonAccentWord(productName), nonAccentWordSegment, docCount,
-                            wordSegment.getDocumentIndexesSize(), queryLength);
+                    String word = wordSegment.getWord();
+                    if(!wordSegment.isNonAccent())
+                        word = WordPreprocessor.getInstance().convertToNonAccentWord(word);
+                    grade = calculateBM25Grade(productName, word, docCount, wordSegment.getDocumentIndexesSize(), queryLength);
                 }
                 Product product = foundedProductIndexes.get(index);
                 if (product == null)
@@ -228,18 +242,18 @@ public class SearchEngine {
      * L = queryLength / averageFieldLength while queryLength is number of word in the query, averageFieldLength is the average number of word in the whole documents
      *
      * @param productName
-     * @param wordSegment
+     * @param word
      * @param docCount
      * @param docFreq
      * @param queryLength
      * @return
      */
-    private double calculateBM25Grade(String productName, WordSegment wordSegment, double docCount, double docFreq, double queryLength) {
+    private double calculateBM25Grade(String productName, String word, double docCount, double docFreq, double queryLength) {
         double L = queryLength / averageFieldLength;
         double k = 1.2;
         double b = 0.75;
         ArrayList<String> productWords = WordPreprocessor.getInstance().getWords(productName);
-        double freq = productWords.stream().filter(w -> w.compareTo(wordSegment.getWord()) == 0).count();
+        double freq = productWords.stream().filter(w -> w.compareTo(word) == 0).count();
         double idf = Math.log(1 + (docCount - docFreq + 0.5) / (docFreq + 0.5));
         double docLength = freq * (k + 1) / (freq + k * (1 - b + b * L));
         double grade = idf * docLength;

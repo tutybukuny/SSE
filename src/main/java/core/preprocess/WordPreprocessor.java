@@ -6,8 +6,10 @@ import java.io.File;
 import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class WordPreprocessor {
     private static final Logger LOGGER = Logger.getLogger(WordPreprocessor.class);
@@ -48,14 +50,23 @@ public class WordPreprocessor {
             for (int i = 0; i < sentences.size(); i++) {
                 ArrayList<String> words = getWords(sentences.get(i));
                 for (String word : words) {
-                    putToMap(map, word, i);
+                    putToMap(map, word, i, false);
                     // turn the word to non-accent word and count for it too
                     if (word.compareTo(convertToNonAccentWord(word)) != 0)
-                        putToMap(map, convertToNonAccentWord(word), i);
+                        putToMap(map, convertToNonAccentWord(word), i, true);
                 }
             }
         } catch (NullPointerException ex) {
             LOGGER.error(ex);
+        }
+
+        for(String word : map.keySet()) {
+            WordSegment wordSegment = map.get(word);
+            if(!wordSegment.isNonAccent()) {
+                WordSegment nonAccentWordSegment = map.get(WordPreprocessor.getInstance().convertToNonAccentWord(word));
+                List<Integer> subIndexes = nonAccentWordSegment.getDocumentIndexes().stream().filter(integer -> !wordSegment.existsInDocument(integer)).collect(Collectors.toList());
+                wordSegment.setSubDocumentIndexes(new ArrayList<>(subIndexes));
+            }
         }
 
         return map;
@@ -91,13 +102,13 @@ public class WordPreprocessor {
      * @param word
      * @param documentIndex
      */
-    private void putToMap(HashMap<String, WordSegment> map, String word, int documentIndex) {
+    private void putToMap(HashMap<String, WordSegment> map, String word, int documentIndex, boolean isPutToSub) {
         try {
             WordSegment wordSegment = map.get(word);
             if (wordSegment == null) {
                 wordSegment = new WordSegment(word);
             }
-            wordSegment.addDocumentIndex(documentIndex);
+            wordSegment.addDocumentIndex(documentIndex, isPutToSub);
             map.put(word, wordSegment);
         } catch (NullPointerException ex) {
             LOGGER.error(ex);
