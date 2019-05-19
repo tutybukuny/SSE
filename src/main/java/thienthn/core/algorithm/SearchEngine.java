@@ -1,5 +1,6 @@
 package thienthn.core.algorithm;
 
+import thienthn.core.common.ConfigurationManager;
 import thienthn.core.common.IOManager;
 import thienthn.core.common.Product;
 import thienthn.core.preprocess.WordPreprocessor;
@@ -21,7 +22,7 @@ public class SearchEngine {
     private long averageFieldLength = 0;
 
     public SearchEngine() {
-        ioManager = new IOManager("models/searchModel.model");
+        ioManager = new IOManager(ConfigurationManager.MODEL_PATH);
     }
 
     /**
@@ -29,15 +30,18 @@ public class SearchEngine {
      *
      * @param pathToTrainingData
      */
-    public void train(String pathToTrainingData) {
+    public boolean train(String pathToTrainingData) {
         System.out.println("Please wait! I'm training the engine.");
         try {
             ArrayList<String> products = ioManager.readLines(pathToTrainingData);
             HashMap<String, WordSegment> model = WordPreprocessor.getInstance().createWordSegmentDictionary(products);
             train(products, model);
         } catch (FileNotFoundException e) {
-            LOGGER.error("cannot find input file: " + pathToTrainingData);
+            LOGGER.error("cannot find input file: " + pathToTrainingData, e);
+            return false;
         }
+
+        return true;
     }
 
     /**
@@ -68,6 +72,7 @@ public class SearchEngine {
      * @throws ClassNotFoundException
      */
     public void loadModel() throws IOException, ClassNotFoundException {
+        System.out.println("Engine is loading its model! Please wait!!!");
         ioManager.openInputStream();
         model = (HashMap<String, WordSegment>) ioManager.readInput();
         products = (ArrayList<String>) ioManager.readInput();
@@ -78,6 +83,7 @@ public class SearchEngine {
         }
 
         averageFieldLength /= products.size();
+        System.out.println("Done loading!");
     }
 
     /**
