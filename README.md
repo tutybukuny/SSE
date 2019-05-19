@@ -21,6 +21,8 @@ I. Project Contructor information
 	- .idea: configuration folder of intellij idea
 	- src/main/java: source code of project
 	- src/main/test/java: source code of unit test (I'm using junit for this project)
+3. How to use?
+	- if you set the input parameter to 1, the application will run on gui mode otherwise it will run in console mode
 
 II. Project Conclusion
 1. Algorithm implementations

@@ -86,5 +86,9 @@ public abstract class SearchEngine {
         return results;
     }
 
+    public boolean isTrained() {
+        return products != null && model != null;
+    }
+
     public abstract ArrayList<Product> findProducts(String query);
 }
