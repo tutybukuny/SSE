@@ -2,7 +2,6 @@ package core.preprocess;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class WordSegment implements Comparable<WordSegment>, Serializable {
     /**
@@ -24,16 +23,8 @@ public class WordSegment implements Comparable<WordSegment>, Serializable {
         return word;
     }
 
-    public void setWord(String word) {
-        this.word = word;
-    }
-
     public ArrayList<Integer> getDocumentIndexes() {
         return documentIndexes;
-    }
-
-    public void setDocumentIndexes(ArrayList<Integer> documentIndexes) {
-        this.documentIndexes = documentIndexes;
     }
 
     public int getDocumentIndexesSize() {
@@ -41,12 +32,8 @@ public class WordSegment implements Comparable<WordSegment>, Serializable {
     }
 
     public void addDocumentIndex(int index) {
-        if(!this.documentIndexes.contains(index))
+        if (!this.documentIndexes.contains(index))
             this.documentIndexes.add(index);
-    }
-
-    public void sortDocumentIndex() {
-        Collections.sort(this.documentIndexes);
     }
 
     public boolean existsInDocument(int documentIndex) {

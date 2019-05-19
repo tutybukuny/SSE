@@ -26,6 +26,7 @@ public class SearchEngine {
 
     /**
      * training the engine and save the trained model
+     *
      * @param pathToTrainingData
      */
     public void train(String pathToTrainingData) {
@@ -41,8 +42,9 @@ public class SearchEngine {
 
     /**
      * training the engine and save the trained model
+     *
      * @param products list of product names
-     * @param model map of WordSegment
+     * @param model    map of WordSegment
      */
     public void train(ArrayList<String> products, HashMap<String, WordSegment> model) {
         try {
@@ -61,6 +63,7 @@ public class SearchEngine {
 
     /**
      * loading the trained model into engine
+     *
      * @throws IOException
      * @throws ClassNotFoundException
      */
@@ -79,6 +82,7 @@ public class SearchEngine {
 
     /**
      * Get all WordSegment of the word that in the input words list
+     *
      * @param words
      * @param includedNonAccentWord turn on to include non-accent word
      * @return list of WordSegments
@@ -90,7 +94,7 @@ public class SearchEngine {
                 wordSegments.add(model.get(word));
 
             if (includedNonAccentWord) {
-                String removedAccentWord = WordPreprocessor.getInstance().convertStringToURL(word);
+                String removedAccentWord = WordPreprocessor.getInstance().convertToNonAccentWord(word);
                 /// only find non-accent query if current query is accent
                 if (removedAccentWord.compareTo(word) != 0 && model.containsKey(removedAccentWord))
                     wordSegments.add(model.get(removedAccentWord));
@@ -102,6 +106,7 @@ public class SearchEngine {
 
     /**
      * sort the product results so the most related products might be on the top
+     *
      * @param products
      * @return sorted product list
      */
@@ -116,8 +121,17 @@ public class SearchEngine {
         return productResults;
     }
 
+    public void excuseQueries(String pathToQueryFile, String pathToDestinationFolder, boolean isUsingBM25) throws FileNotFoundException {
+        ArrayList<String> queries = ioManager.readLines(pathToQueryFile);
+        for (String query : queries) {
+            ArrayList<String> results = findProducts(query, isUsingBM25);
+
+        }
+    }
+
     /**
      * begin find products for the query
+     *
      * @param query
      * @param isUsingBM25 true to use BM25 algorithm or reverse index is used by default
      * @return return founded product list that match the query
@@ -127,17 +141,17 @@ public class SearchEngine {
         if (isUsingBM25) {
             return findProductsUsingBM25(query);
         } else {
-            return findProdutsUsingReverseIndex(query);
+            return findProductsUsingReverseIndex(query);
         }
     }
 
     /**
      * excuse reverse index algorithm
+     *
      * @param query
      * @return
      */
-    private ArrayList<String> findProdutsUsingReverseIndex(String query) {
-        ArrayList<String> foundedProducts = new ArrayList<>();
+    private ArrayList<String> findProductsUsingReverseIndex(String query) {
         ArrayList<String> words = WordPreprocessor.getInstance().getWords(query);
         HashMap<Integer, Product> foundedProductIndexes = new HashMap<>();
         ArrayList<WordSegment> wordSegments = getWordSegments(words, true);
@@ -162,6 +176,7 @@ public class SearchEngine {
 
     /**
      * excuse BM25 algorithm
+     *
      * @param query
      * @return
      */
@@ -179,18 +194,18 @@ public class SearchEngine {
 
         for (WordSegment wordSegment : wordSegments) {
             ArrayList<Integer> productIndexes = wordSegment.getDocumentIndexes();
-            String nonAccentWord = WordPreprocessor.getInstance().convertStringToURL(wordSegment.getWord());
+            String nonAccentWord = WordPreprocessor.getInstance().convertToNonAccentWord(wordSegment.getWord());
             boolean isNonAccentWord = nonAccentWord.compareTo(wordSegment.getWord()) == 0;
             if (!isNonAccentWord)
                 productIndexes = model.get(nonAccentWord).getDocumentIndexes();
             for (Integer index : productIndexes) {
                 String productName = products.get(index).toLowerCase();
                 if (isNonAccentWord)
-                    productName = WordPreprocessor.getInstance().convertStringToURL(productName);
+                    productName = WordPreprocessor.getInstance().convertToNonAccentWord(productName);
                 double grade = calculateBM25Grade(productName, wordSegment, docCount, wordSegment.getDocumentIndexesSize(), queryLength);
                 if (!isNonAccentWord) {
                     WordSegment nonAccentWordSegment = model.get(nonAccentWord);
-                    grade += calculateBM25Grade(WordPreprocessor.getInstance().convertStringToURL(productName), nonAccentWordSegment, docCount,
+                    grade += calculateBM25Grade(WordPreprocessor.getInstance().convertToNonAccentWord(productName), nonAccentWordSegment, docCount,
                             wordSegment.getDocumentIndexesSize(), queryLength);
                 }
                 Product product = foundedProductIndexes.get(index);
@@ -211,6 +226,7 @@ public class SearchEngine {
      * freq is how many times the word appears in the document
      * k1, b is constant
      * L = queryLength / averageFieldLength while queryLength is number of word in the query, averageFieldLength is the average number of word in the whole documents
+     *
      * @param productName
      * @param wordSegment
      * @param docCount

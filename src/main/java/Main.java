@@ -1,4 +1,3 @@
-import core.algorithm.EngineManger;
 import core.algorithm.SearchEngine;
 import org.apache.log4j.Logger;
 
@@ -22,7 +21,7 @@ public class Main {
         try {
             engine.loadModel();
             while (true) {
-                System.out.print("plead input query: ");
+                System.out.print("please input query: ");
                 Scanner inp = new Scanner(System.in);
                 String cmd = inp.nextLine();
                 if (cmd.isEmpty())
