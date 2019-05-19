@@ -1,4 +1,4 @@
-# SSE
+# Small Search Engine
 ## Author: Tran Ha Ngoc Thien
 
 
