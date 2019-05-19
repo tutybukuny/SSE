@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1e4a82bb-54c2-4774-be72-c924d32c3f0f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/TestingRunner.java" afterDir="false" />
-    </list>
+    <list default="true" id="1e4a82bb-54c2-4774-be72-c924d32c3f0f" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,7 +16,7 @@
         <entry file="file://$PROJECT_DIR$/src/test/java/EngineManagerTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
-              <caret line="21" column="38" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
+              <caret line="20" column="38" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
               <folding>
                 <element signature="method#testTrainMethod#0;class#EngineManagerTest#0" />
                 <element signature="method#testLoadModelMethod#0;class#EngineManagerTest#0" />
@@ -87,7 +85,7 @@
         <entry file="file://$PROJECT_DIR$/src/test/java/ReverseIndexEngineTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#382#383#0" expanded="true" />
@@ -100,8 +98,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/TestingRunner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+            <state relative-caret-position="238">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -113,7 +111,7 @@
         <entry file="file://$PROJECT_DIR$/src/test/java/SearchEngineTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
-              <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+              <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
               <folding>
                 <element signature="method#beforClass#0;class#SearchEngineTest#0" />
                 <element signature="e#491#540#0" />
@@ -157,8 +155,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-265">
-              <caret line="93" column="14" selection-start-line="93" selection-start-column="14" selection-end-line="93" selection-end-column="14" />
+            <state relative-caret-position="58">
+              <caret line="112" column="57" selection-start-line="112" selection-start-column="57" selection-end-line="112" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -277,74 +275,6 @@
               <item name="SSE" type="b2602c69:ProjectViewProjectNode" />
               <item name="SSE" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SSE" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SSE" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SSE" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SSE" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SSE" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SSE" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SSE" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SSE" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="algorithm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SSE" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SSE" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SSE" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SSE" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="preprocess" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SSE" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SSE" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SSE" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SSE" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SSE" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SSE" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SSE" type="b2602c69:ProjectViewProjectNode" />
@@ -475,18 +405,6 @@
     </recent_temporary>
   </component>
   <component name="TestHistory">
-    <history-entry file="BM25EngineTest_testCalculateBM25GradeMethod - 2019.05.19 at 21h 18m 48s.xml">
-      <configuration name="BM25EngineTest.testCalculateBM25GradeMethod" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BM25EngineTest_testCalculateBM25GradeMethod - 2019.05.19 at 21h 19m 01s.xml">
-      <configuration name="BM25EngineTest.testCalculateBM25GradeMethod" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BM25EngineTest_testCalculateBM25GradeMethod - 2019.05.19 at 21h 19m 20s.xml">
-      <configuration name="BM25EngineTest.testCalculateBM25GradeMethod" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BM25EngineTest_testCalculateBM25GradeMethod - 2019.05.19 at 21h 20m 42s.xml">
-      <configuration name="BM25EngineTest.testCalculateBM25GradeMethod" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="BM25EngineTest_testCalculateBM25GradeMethod - 2019.05.19 at 21h 23m 33s.xml">
       <configuration name="BM25EngineTest.testCalculateBM25GradeMethod" configurationId="JUnit" />
     </history-entry>
@@ -505,10 +423,21 @@
     <history-entry file="SearchEngineTest_testExcuseQueriesMethod - 2019.05.19 at 21h 34m 36s.xml">
       <configuration name="SearchEngineTest.testExcuseQueriesMethod" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="TestingRunner - 2019.05.19 at 21h 41m 50s.xml">
+      <configuration name="TestingRunner" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestingRunner - 2019.05.19 at 21h 42m 07s.xml">
+      <configuration name="TestingRunner" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestingRunner - 2019.05.19 at 21h 43m 28s.xml">
+      <configuration name="TestingRunner" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestingRunner - 2019.05.19 at 21h 44m 49s.xml">
+      <configuration name="TestingRunner" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="UI Designer" order="0" />
       <window_info id="Favorites" order="1" side_tool="true" />
@@ -779,7 +708,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/thienthn/core/algorithm/EngineManger.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/thienthn/core/algorithm/EngineManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="68" column="16" selection-start-line="68" selection-start-column="16" selection-end-line="68" selection-end-column="16" />
@@ -835,7 +764,7 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/EngineManagerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="21" column="38" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
+          <caret line="20" column="38" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
           <folding>
             <element signature="method#testTrainMethod#0;class#EngineManagerTest#0" />
             <element signature="method#testLoadModelMethod#0;class#EngineManagerTest#0" />
@@ -881,17 +810,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-265">
-          <caret line="93" column="14" selection-start-line="93" selection-start-column="14" selection-end-line="93" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/SearchEngineTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
           <folding>
             <element signature="method#beforClass#0;class#SearchEngineTest#0" />
             <element signature="e#491#540#0" />
@@ -988,7 +910,7 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/ReverseIndexEngineTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#382#383#0" expanded="true" />
@@ -997,10 +919,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="112" column="57" selection-start-line="112" selection-start-column="57" selection-end-line="112" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/TestingRunner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+        <state relative-caret-position="238">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

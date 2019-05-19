@@ -33,3 +33,4 @@ II. Project Conclusion
 3. Enhancement In The Future
 	- As I said on the first line of section 1, I use only **unigram**. So if we use **bigram** and **trigram** additionally, it could be better. And I think using **meaning word** as term would be the useful (we can use some libraries to do this such as **vntokenizer**)
 	- Wrong spelling is needed to solve and the performance will be elevated.
+	- We could use a database management system to improve our search time.
