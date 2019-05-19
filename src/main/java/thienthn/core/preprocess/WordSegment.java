@@ -1,4 +1,4 @@
-package core.preprocess;
+package thienthn.core.preprocess;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -50,8 +50,7 @@ public class WordSegment implements Comparable<WordSegment>, Serializable {
     }
 
     public ArrayList<Integer> getAllDocumentIndexes() {
-        if(subDocumentIndexes.size() > 0)
-        {
+        if (subDocumentIndexes.size() > 0) {
             ArrayList<Integer> allDocumentIndexes = (ArrayList<Integer>) documentIndexes.clone();
             allDocumentIndexes.addAll(subDocumentIndexes);
             return allDocumentIndexes;

@@ -1,4 +1,4 @@
-package core.common;
+package thienthn.core.common;
 
 public class Product {
     /**

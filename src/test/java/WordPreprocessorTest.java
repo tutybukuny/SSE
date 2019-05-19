@@ -1,7 +1,7 @@
-import core.preprocess.WordPreprocessor;
-import core.preprocess.WordSegment;
 import org.junit.Assert;
 import org.junit.Test;
+import thienthn.core.preprocess.WordPreprocessor;
+import thienthn.core.preprocess.WordSegment;
 
 import java.util.ArrayList;
 import java.util.Arrays;

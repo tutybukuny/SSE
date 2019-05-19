@@ -1,9 +1,9 @@
-package core.algorithm;
+package thienthn.core.algorithm;
 
-import core.common.IOManager;
-import core.common.Product;
-import core.preprocess.WordPreprocessor;
-import core.preprocess.WordSegment;
+import thienthn.core.common.IOManager;
+import thienthn.core.common.Product;
+import thienthn.core.preprocess.WordPreprocessor;
+import thienthn.core.preprocess.WordSegment;
 import org.apache.log4j.Logger;
 
 import java.io.FileNotFoundException;
@@ -206,19 +206,25 @@ public class SearchEngine {
         HashMap<Integer, Product> foundedProductIndexes = new HashMap<>();
         ArrayList<WordSegment> wordSegments = getWordSegments(words, false);
 
+        /// instead of calculating the bm25 grade for all product, we just calculate the products that contain at least one word appearing in the query
+        /// this way would save our time in most of cases
         for (WordSegment wordSegment : wordSegments) {
             ArrayList<Integer> productIndexes = wordSegment.getAllDocumentIndexes();
             int boundary = wordSegment.getDocumentIndexesSize();
             for (int i = 0; i < productIndexes.size(); i++) {
                 Integer index = productIndexes.get(i);
                 String productName = products.get(index).toLowerCase();
-                double grade = 0;
-                if(i < boundary) {
+                double grade;
+
+                /// we want the results to contain all accent and non-accent result so we assessment two cases of a word
+                /// first: on the main indexes of it (i < boundary) we calculate normally
+                /// second: on the sub indexes of it (i >= boundary) we set all product names and words to non-accent state then calculating
+                if (i < boundary) {
                     grade = calculateBM25Grade(productName, wordSegment.getWord(), docCount, wordSegment.getDocumentIndexesSize(), queryLength);
                 } else {
                     productName = WordPreprocessor.getInstance().convertToNonAccentWord(productName);
                     String word = wordSegment.getWord();
-                    if(!wordSegment.isNonAccent())
+                    if (!wordSegment.isNonAccent())
                         word = WordPreprocessor.getInstance().convertToNonAccentWord(word);
                     grade = calculateBM25Grade(productName, word, docCount, wordSegment.getDocumentIndexesSize(), queryLength);
                 }

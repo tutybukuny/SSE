@@ -1,4 +1,4 @@
-package core.common;
+package thienthn.core.common;
 
 import java.io.*;
 import java.util.ArrayList;

@@ -1,5 +1,6 @@
-import core.algorithm.SearchEngine;
+import thienthn.core.algorithm.SearchEngine;
 import org.apache.log4j.Logger;
+import core.common.ConfigurationManager;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -16,6 +17,12 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        try {
+            ConfigurationManager.loadAllConfigurations();
+        } catch (IOException e) {
+            LOGGER.error("cannot load config file", e);
+        }
+
         SearchEngine engine = new SearchEngine();
 //        engine.train("src/main/resources/product_names.txt");
         try {

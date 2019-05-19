@@ -1,4 +1,4 @@
-package core.preprocess;
+package thienthn.core.preprocess;
 
 import org.apache.log4j.Logger;
 
@@ -42,7 +42,7 @@ public class WordPreprocessor {
      * create the map of word segments from particular sentences.
      *
      * @param sentences
-     * @return HashMap<word   ,       counted       properties       of       word>
+     * @return HashMap<word               ,                               counted                               properties                               of                               word>
      */
     public HashMap<String, WordSegment> createWordSegmentDictionary(ArrayList<String> sentences) {
         HashMap<String, WordSegment> map = new HashMap<>();
@@ -60,9 +60,9 @@ public class WordPreprocessor {
             LOGGER.error(ex);
         }
 
-        for(String word : map.keySet()) {
+        for (String word : map.keySet()) {
             WordSegment wordSegment = map.get(word);
-            if(!wordSegment.isNonAccent()) {
+            if (!wordSegment.isNonAccent()) {
                 WordSegment nonAccentWordSegment = map.get(WordPreprocessor.getInstance().convertToNonAccentWord(word));
                 List<Integer> subIndexes = nonAccentWordSegment.getDocumentIndexes().stream().filter(integer -> !wordSegment.existsInDocument(integer)).collect(Collectors.toList());
                 wordSegment.setSubDocumentIndexes(new ArrayList<>(subIndexes));

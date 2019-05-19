@@ -1,8 +1,8 @@
-package core.algorithm;
+package thienthn.core.algorithm;
 
-import core.common.IOManager;
-import core.preprocess.WordPreprocessor;
-import core.preprocess.WordSegment;
+import thienthn.core.common.IOManager;
+import thienthn.core.preprocess.WordPreprocessor;
+import thienthn.core.preprocess.WordSegment;
 import org.apache.log4j.Logger;
 
 import java.io.FileNotFoundException;
