@@ -15,6 +15,9 @@ I. Project Contructor information
 	- app.config: configurations of application which built by this project
 		+ model_path: set the path of file where trained model will be stored
 		+ algorithm: set which algorithm will be used be application, default is **Reverse Index** algorithm, to use **BM25** just set this property to "bm25"
+		+ const.k: k constant in BM25 fomula, default of it is 1.2
+		+ const.b: b constant in BM25 fomula, default of it is 0.75
+		+ reverse_index_improvement: set it to true to enable my improment in Reverse Index algorithm
 	- .idea: configuration folder of intellij idea
 	- src/main/java: source code of project
 	- src/main/test/java: source code of unit test (I'm using junit for this project)

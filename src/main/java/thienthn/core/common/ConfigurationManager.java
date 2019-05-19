@@ -14,6 +14,7 @@ public class ConfigurationManager {
     public static boolean BM25_ALGORITHM = false;
     public static double K_CONST = 1.2;
     public static double B_CONST = 0.75;
+    public static boolean IMPROVE_REVERSE_INDEX = true;
 
     public static void loadAllConfigurations() throws IOException {
         InputStream inputStream = new FileInputStream("app.config");
@@ -39,11 +40,14 @@ public class ConfigurationManager {
             LOGGER.error("error when load b", e);
         }
 
+        IMPROVE_REVERSE_INDEX = properties.getProperty("reverse_index_improvement", "true").compareTo("true") == 0;
+
         LOGGER.info("Configurations of engine loaded!");
         LOGGER.info("MODEL_PATH:\t" + MODEL_PATH);
         LOGGER.info("ALGORITHM:\t" + (BM25_ALGORITHM ? "BM25" : "Reverse Index"));
         LOGGER.info("K_CONST:\t" + K_CONST);
         LOGGER.info("B_CONST:\t" + B_CONST);
+        LOGGER.info("IMPROVE_REVERSE_INDEX " + IMPROVE_REVERSE_INDEX);
         System.out.println();
     }
 }

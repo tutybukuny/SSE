@@ -1,5 +1,6 @@
 package thienthn.core.algorithm;
 
+import thienthn.core.common.ConfigurationManager;
 import thienthn.core.common.Product;
 import thienthn.core.preprocess.WordPreprocessor;
 import thienthn.core.preprocess.WordSegment;
@@ -21,8 +22,9 @@ public class ReverseIndexEngine extends SearchEngine {
         ArrayList<WordSegment> wordSegments = getWordSegments(words);
 
         if (!wordSegments.isEmpty()) {
+            /// The grade represent for how much times that the terms of query hit that product. The more hit comes the bigger grade
             /// I set the grade = 1.000001 to put the accent result on the top
-            /// a little bit 0.000001 helps me on the situation that we have the same number of accent words and non-accent word
+            /// A little bit 0.000001 helps me on the situation that we have the same number of accent words and non-accent word
             /// Is this right? Bases on real life, we want accent result to stay on the top hơn mà :D???
             for (WordSegment wordSegment : wordSegments) {
                 ArrayList<Integer> documentIndexes = wordSegment.getAllDocumentIndexes();
@@ -35,11 +37,14 @@ public class ReverseIndexEngine extends SearchEngine {
                     if (product == null)
                         product = new Product(index, products.get(index));
                     double grade = 1;
-                    if (!wordSegment.isNonAccent()) {
-                        if (i < boundary)
+                    if(ConfigurationManager.IMPROVE_REVERSE_INDEX) {
+                        if (!wordSegment.isNonAccent()) {
+                            if (i < boundary)
+                                grade = 1.000001;
+                        } else if (i > boundary)
                             grade = 1.000001;
-                    } else if (i > boundary)
-                        grade = 1.000001;
+                    } else
+                        grade = 0;
                     product.setGrade(product.getGrade() + grade);
                     foundedProductIndexes.put(index, product);
                 }
