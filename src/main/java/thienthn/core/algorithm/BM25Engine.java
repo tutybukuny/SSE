@@ -23,14 +23,8 @@ public class BM25Engine extends SearchEngine {
         averageFieldLength /= products.size();
     }
 
-    /**
-     * excuse BM25 algorithm
-     *
-     * @param query
-     * @return
-     */
     @Override
-    public ArrayList<String> findProducts(String query) {
+    public ArrayList<Product> findProducts(String query) {
         ArrayList<String> words = WordPreprocessor.getInstance().getWords(query);
         double queryLength = query.split("\\s+").length;
 

@@ -56,13 +56,13 @@ public abstract class SearchEngine {
      * @param products
      * @return sorted product list
      */
-    public ArrayList<String> sortProducts(HashMap<Integer, Product> products) {
-        ArrayList<String> productResults = new ArrayList<>();
+    public ArrayList<Product> sortProducts(HashMap<Integer, Product> products) {
+        ArrayList<Product> productResults = new ArrayList<>();
         ArrayList<Product> sortedProductResults = new ArrayList<>(products.values());
         Collections.sort(sortedProductResults, (o1, o2) -> o1.getGrade() < o2.getGrade() ? 1 : (o1.getGrade() == o2.getGrade() ? 0 : -1));
         for (Product product : sortedProductResults) {
 //            System.out.println(product.getProductName() + " " + product.getGrade());
-            productResults.add(product.getProductName());
+            productResults.add(product);
         }
 
         return productResults;
@@ -71,10 +71,20 @@ public abstract class SearchEngine {
     public void excuseQueries(String pathToQueryFile, String pathToDestinationFolder) throws IOException {
         ArrayList<String> queries = ioManager.readLines(pathToQueryFile);
         for (String query : queries) {
-            ArrayList<String> results = findProducts(query);
+            ArrayList<String> results = findProductNames(query);
             ioManager.writeTextToFile(results, pathToDestinationFolder + "/" + query + ".txt");
         }
     }
 
-    public abstract ArrayList<String> findProducts(String query);
+    public ArrayList<String> findProductNames(String query) {
+        ArrayList<Product> products = findProducts(query);
+        ArrayList<String> results = new ArrayList<>();
+        for(int i = 0; i < products.size(); i++) {
+            results.add(products.get(i).getProductName());
+        }
+
+        return results;
+    }
+
+    public abstract ArrayList<Product> findProducts(String query);
 }

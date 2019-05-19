@@ -15,7 +15,7 @@ public class ReverseIndexEngine extends SearchEngine {
      * @return
      */
     @Override
-    public ArrayList<String> findProducts(String query) {
+    public ArrayList<Product> findProducts(String query) {
         ArrayList<String> words = WordPreprocessor.getInstance().getWords(query);
         HashMap<Integer, Product> foundedProductIndexes = new HashMap<>();
         ArrayList<WordSegment> wordSegments = getWordSegments(words);

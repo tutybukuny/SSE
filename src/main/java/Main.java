@@ -88,7 +88,7 @@ public class Main {
             return;
         }
 
-        ArrayList<String> foundedProducts = engine.findProducts(cmd);
+        ArrayList<String> foundedProducts = engine.findProductNames(cmd);
         if (foundedProducts == null || foundedProducts.isEmpty())
             System.out.println("not found any matched product!");
         else {
