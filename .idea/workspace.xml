@@ -2,15 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e4a82bb-54c2-4774-be72-c924d32c3f0f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/SearchEngineTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/thienthn/core/algorithm/BM25Engine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/thienthn/core/algorithm/ReverseIndexEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/thienthn/core/algorithm/EngineManger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/thienthn/core/algorithm/EngineManger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/thienthn/core/algorithm/SearchEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/thienthn/core/algorithm/SearchEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/thienthn/core/common/ConfigurationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/thienthn/core/common/ConfigurationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/thienthn/core/preprocess/WordPreprocessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/thienthn/core/preprocess/WordPreprocessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/thienthn/core/preprocess/WordSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/thienthn/core/preprocess/WordSegment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/WordPreprocessorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/WordPreprocessorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/SearchEngineTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/EngineManagerTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -25,8 +23,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/WordPreprocessorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="58" column="33" selection-start-line="58" selection-start-column="33" selection-end-line="58" selection-end-column="33" />
+            <state>
+              <caret line="7" column="25" lean-forward="true" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
               <folding>
                 <element signature="method#testCreateWordSegmentDictionaryMethod#0;class#WordPreprocessorTest#0" />
                 <element signature="e#1520#1566#1" />
@@ -38,44 +36,66 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/thienthn/core/preprocess/WordPreprocessor.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/thienthn/core/algorithm/EngineManger.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="113" selection-start-line="113" selection-end-line="113" />
+            <state relative-caret-position="443">
+              <caret line="48" column="26" lean-forward="true" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
               <folding>
-                <element signature="method#getInstance#0;class#WordPreprocessor#0" />
-                <element signature="docComment;method#convertToNonAccentWord#0;class#WordPreprocessor#0" />
-                <element signature="method#convertToNonAccentWord#0;class#WordPreprocessor#0" />
-                <element signature="e#839#1100#0" />
-                <element signature="e#1122#1167#0" />
-                <element signature="docComment;method#createWordSegmentDictionary#0;class#WordPreprocessor#0" />
-                <element signature="method#createWordSegmentDictionary#0;class#WordPreprocessor#0" />
-                <element signature="e#1670#2165#0" />
-                <element signature="e#1727#2155#1" />
-                <element signature="e#1841#2141#1" />
-                <element signature="e#2198#2239#0" />
-                <element signature="e#2282#2789#1" />
-                <element signature="e#2381#2779#1" />
-                <element signature="docComment;method#putToMap#0;class#WordPreprocessor#0" />
-                <element signature="method#putToMap#0;class#WordPreprocessor#0" />
-                <element signature="e#3743#4022#0" />
-                <element signature="e#3835#3903#1" />
-                <element signature="e#4055#4096#0" />
-                <element signature="docComment;method#getWords#0;class#WordPreprocessor#0" />
-                <element signature="method#getWords#0;class#WordPreprocessor#0" />
-                <element signature="e#4423#4685#1" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#559#560#0" expanded="true" />
+                <element signature="e#592#593#0" expanded="true" />
+                <element signature="e#649#650#0" expanded="true" />
+                <element signature="e#690#691#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/thienthn/core/algorithm/EngineManger.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/thienthn/core/algorithm/BM25Engine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            <state relative-caret-position="408">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="docComment;method#findProductsUsingBM25#0;class#BM25Engine#0" />
+                <element signature="e#859#1002#0" />
+                <element signature="e#1114#2813#1" />
+                <element signature="e#1326#2803#1" />
+                <element signature="e#1502#1606#0" />
+                <element signature="e#1872#2036#1" />
+                <element signature="e#2042#2492#1" />
+                <element signature="docComment;method#calculateBM25Grade#0;class#BM25Engine#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/thienthn/core/algorithm/ReverseIndexEngine.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="532">
+              <caret line="37" column="52" selection-start-line="37" selection-start-column="52" selection-end-line="37" selection-end-column="52" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="docComment;method#findProductsUsingReverseIndex#0;class#ReverseIndexEngine#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/thienthn/core/algorithm/SearchEngine.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="290">
+              <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
+              <folding>
+                <element signature="e#688#689#0" expanded="true" />
+                <element signature="e#762#763#0" expanded="true" />
+                <element signature="docComment;method#getWordSegments#0;class#SearchEngine#0" />
+                <element signature="docComment;method#sortProducts#0;class#SearchEngine#0" />
+                <element signature="method#sortProducts#0;class#SearchEngine#0" />
+                <element signature="e#4554#4710#1" />
               </folding>
             </state>
           </provider>
@@ -117,79 +137,34 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
-              <folding>
-                <element signature="method#main#0;class#Main#0" />
-                <element signature="method#inputQuery#0;class#Main#0" />
-                <element signature="method#inputQueryFile#0;class#Main#0" />
-                <element signature="method#trainEngine#0;class#Main#0" />
-              </folding>
+            <state relative-caret-position="493">
+              <caret line="60" column="19" selection-start-line="60" selection-start-column="19" selection-end-line="60" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/SearchEngineTest.java">
+        <entry file="file://$PROJECT_DIR$/app.config">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="17">
+              <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/thienthn/core/algorithm/SearchEngine.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/EngineManagerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="96" column="34" selection-start-line="96" selection-start-column="34" selection-end-line="96" selection-end-column="34" />
+            <state relative-caret-position="391">
+              <caret line="35" column="32" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
               <folding>
-                <element signature="docComment;method#train#0;class#SearchEngine#0" />
-                <element signature="method#train#0;class#SearchEngine#0" />
-                <element signature="e#1085#1333#0" />
-                <element signature="e#1366#1481#0" />
-                <element signature="docComment;method#train#1;class#SearchEngine#0" />
-                <element signature="method#train#1;class#SearchEngine#0" />
-                <element signature="e#1775#2038#0" />
-                <element signature="e#2071#2134#0" />
-                <element signature="e#2157#2197#0" />
-                <element signature="docComment;method#loadModel#0;class#SearchEngine#0" />
-                <element signature="method#loadModel#0;class#SearchEngine#0" />
-                <element signature="e#2734#2809#1" />
-                <element signature="docComment;method#getWordSegments#0;class#SearchEngine#0" />
-                <element signature="docComment;method#sortProducts#0;class#SearchEngine#0" />
-                <element signature="method#sortProducts#0;class#SearchEngine#0" />
-                <element signature="e#4554#4710#1" />
-                <element signature="method#excuseQueries#0;class#SearchEngine#0" />
-                <element signature="e#4989#5170#1" />
-                <element signature="docComment;method#findProducts#0;class#SearchEngine#0" />
-                <element signature="method#findProducts#0;class#SearchEngine#0" />
-                <element signature="e#5549#5609#1" />
-                <element signature="e#5615#5683#1" />
-                <element signature="docComment;method#findProductsUsingReverseIndex#0;class#SearchEngine#0" />
-                <element signature="method#findProductsUsingReverseIndex#0;class#SearchEngine#0" />
-                <element signature="e#6135#7504#1" />
-                <element signature="e#6149#6215#0" />
-                <element signature="e#6507#7494#1" />
-                <element signature="e#6733#7480#1" />
-                <element signature="e#7157#7268#1" />
-                <element signature="docComment;method#findProductsUsingBM25#0;class#SearchEngine#0" />
-                <element signature="method#findProductsUsingBM25#0;class#SearchEngine#0" />
-                <element signature="e#7897#7983#1" />
-                <element signature="e#8189#8332#0" />
-                <element signature="e#8444#10143#1" />
-                <element signature="e#8656#10133#1" />
-                <element signature="e#8832#8936#0" />
-                <element signature="e#9202#9366#1" />
-                <element signature="e#9372#9822#1" />
-                <element signature="docComment;method#calculateBM25Grade#0;class#SearchEngine#0" />
-                <element signature="method#calculateBM25Grade#0;class#SearchEngine#0" />
+                <element signature="e#878#922#0" />
+                <element signature="e#956#1000#0" />
+                <element signature="e#1179#1223#0" />
+                <element signature="e#1257#1301#0" />
               </folding>
             </state>
           </provider>
@@ -234,14 +209,17 @@
         <option value="$PROJECT_DIR$/src/main/java/core/preprocess/WordSegment.java" />
         <option value="$PROJECT_DIR$/src/main/java/thienthn/core/common/IOManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/thienthn/core/common/Product.java" />
-        <option value="$PROJECT_DIR$/src/main/java/thienthn/core/algorithm/EngineManger.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/thienthn/core/common/ConfigurationManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/thienthn/core/preprocess/WordSegment.java" />
         <option value="$PROJECT_DIR$/src/main/java/thienthn/core/preprocess/WordPreprocessor.java" />
         <option value="$PROJECT_DIR$/src/test/java/WordPreprocessorTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/thienthn/core/algorithm/SearchEngine.java" />
+        <option value="$PROJECT_DIR$/src/main/java/thienthn/core/algorithm/ReverseIndexEngine.java" />
         <option value="$PROJECT_DIR$/src/test/java/SearchEngineTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/thienthn/core/algorithm/BM25Engine.java" />
+        <option value="$PROJECT_DIR$/src/main/java/thienthn/core/algorithm/SearchEngine.java" />
+        <option value="$PROJECT_DIR$/app.config" />
+        <option value="$PROJECT_DIR$/src/main/java/thienthn/core/algorithm/EngineManger.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
       </list>
     </option>
   </component>
@@ -286,6 +264,43 @@
               <item name="SSE" type="b2602c69:ProjectViewProjectNode" />
               <item name="SSE" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SSE" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SSE" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SSE" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SSE" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SSE" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SSE" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SSE" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SSE" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="algorithm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SSE" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SSE" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SSE" type="b2602c69:ProjectViewProjectNode" />
@@ -348,9 +363,39 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.SearchEngineTest.testLoadModelMethod">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="SSE" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EngineManagerTest.testLoadModelMethod" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SSE" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="EngineManagerTest" />
+      <option name="METHOD_NAME" value="testLoadModelMethod" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EngineManagerTest.testTrainMethod" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SSE" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="EngineManagerTest" />
+      <option name="METHOD_NAME" value="testTrainMethod" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -377,39 +422,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WordPreprocessorTest.testConvertToNonAccentWord" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SSE" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="WordPreprocessorTest" />
-      <option name="METHOD_NAME" value="testConvertToNonAccentWord" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="WordPreprocessorTest.testConvertToNonAccentWordMethod" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SSE" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="WordPreprocessorTest" />
-      <option name="METHOD_NAME" value="testConvertToNonAccentWordMethod" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="WordPreprocessorTest.testGetWord" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SSE" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="WordPreprocessorTest" />
-      <option name="METHOD_NAME" value="testGetWord" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
@@ -426,24 +438,15 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.EngineManagerTest.testLoadModelMethod" />
+        <item itemvalue="JUnit.EngineManagerTest.testTrainMethod" />
         <item itemvalue="JUnit.SearchEngineTest.testLoadModelMethod" />
         <item itemvalue="JUnit.SearchEngineTest.testTrainMethod" />
-        <item itemvalue="JUnit.WordPreprocessorTest.testConvertToNonAccentWordMethod" />
-        <item itemvalue="JUnit.WordPreprocessorTest.testGetWord" />
-        <item itemvalue="JUnit.WordPreprocessorTest.testConvertToNonAccentWord" />
       </list>
     </recent_temporary>
   </component>
   <component name="TestHistory">
-    <history-entry file="WordPreprocessorTest_testCreateWordSegmentDictionaryMethod - 2019.05.19 at 15h 00m 23s.xml">
-      <configuration name="WordPreprocessorTest.testCreateWordSegmentDictionaryMethod" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="WordPreprocessorTest_testCreateWordSegmentDictionaryMethod - 2019.05.19 at 15h 00m 26s.xml">
-      <configuration name="WordPreprocessorTest.testCreateWordSegmentDictionaryMethod" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="WordPreprocessorTest_testConvertToNonAccentWord - 2019.05.19 at 15h 03m 59s.xml">
-      <configuration name="WordPreprocessorTest.testConvertToNonAccentWord" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="WordPreprocessorTest_testConvertToNonAccentWord - 2019.05.19 at 15h 05m 40s.xml">
       <configuration name="WordPreprocessorTest.testConvertToNonAccentWord" configurationId="JUnit" />
     </history-entry>
@@ -465,14 +468,24 @@
     <history-entry file="SearchEngineTest_testLoadModelMethod - 2019.05.19 at 15h 34m 54s.xml">
       <configuration name="SearchEngineTest.testLoadModelMethod" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="EngineManagerTest_testTrainMethod - 2019.05.19 at 16h 15m 48s.xml">
+      <configuration name="EngineManagerTest.testTrainMethod" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EngineManagerTest_testLoadModelMethod - 2019.05.19 at 16h 16m 01s.xml">
+      <configuration name="EngineManagerTest.testLoadModelMethod" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EngineManagerTest_testLoadModelMethod - 2019.05.19 at 16h 16m 23s.xml">
+      <configuration name="EngineManagerTest.testLoadModelMethod" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="UI Designer" order="0" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.25266525" />
+      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.25266525" />
       <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" order="0" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
@@ -585,19 +598,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/core/algorithm/ReverseIndexEngine.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/core/algorithm/BM25Engine.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/src.zip!/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="2131" column="19" selection-start-line="2131" selection-start-column="19" selection-end-line="2131" selection-end-column="19" />
-          <folding>
-            <element signature="e#82971#82972#0" expanded="true" />
-            <element signature="e#83020#83021#0" expanded="true" />
-            <element signature="e#94598#94599#0" expanded="true" />
-            <element signature="e#94636#94637#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/core/common/IOManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -686,16 +686,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/thienthn/core/algorithm/EngineManger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/thienthn/core/preprocess/WordPreprocessor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -758,23 +748,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="298">
+          <caret line="110" column="19" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
           <folding>
-            <element signature="method#main#0;class#Main#0" />
-            <element signature="method#inputQuery#0;class#Main#0" />
-            <element signature="method#inputQueryFile#0;class#Main#0" />
-            <element signature="method#trainEngine#0;class#Main#0" />
+            <element signature="e#82971#82972#0" expanded="true" />
+            <element signature="e#83020#83021#0" expanded="true" />
+            <element signature="e#94598#94599#0" expanded="true" />
+            <element signature="e#94636#94637#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/EngineManagerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="35" column="32" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
+          <folding>
+            <element signature="e#878#922#0" />
+            <element signature="e#956#1000#0" />
+            <element signature="e#1179#1223#0" />
+            <element signature="e#1257#1301#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/thienthn/core/algorithm/EngineManger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="48" column="26" lean-forward="true" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#559#560#0" expanded="true" />
+            <element signature="e#592#593#0" expanded="true" />
+            <element signature="e#649#650#0" expanded="true" />
+            <element signature="e#690#691#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/thienthn/core/algorithm/SearchEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
+          <folding>
+            <element signature="e#688#689#0" expanded="true" />
+            <element signature="e#762#763#0" expanded="true" />
+            <element signature="docComment;method#getWordSegments#0;class#SearchEngine#0" />
+            <element signature="docComment;method#sortProducts#0;class#SearchEngine#0" />
+            <element signature="method#sortProducts#0;class#SearchEngine#0" />
+            <element signature="e#4554#4710#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/thienthn/core/algorithm/ReverseIndexEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="37" column="52" selection-start-line="37" selection-start-column="52" selection-end-line="37" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#findProductsUsingReverseIndex#0;class#ReverseIndexEngine#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/WordPreprocessorTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="58" column="33" selection-start-line="58" selection-start-column="33" selection-end-line="58" selection-end-column="33" />
+        <state>
+          <caret line="7" column="25" lean-forward="true" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
           <folding>
             <element signature="method#testCreateWordSegmentDictionaryMethod#0;class#WordPreprocessorTest#0" />
             <element signature="e#1520#1566#1" />
@@ -784,69 +827,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/thienthn/core/algorithm/BM25Engine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#findProductsUsingBM25#0;class#BM25Engine#0" />
+            <element signature="e#859#1002#0" />
+            <element signature="e#1114#2813#1" />
+            <element signature="e#1326#2803#1" />
+            <element signature="e#1502#1606#0" />
+            <element signature="e#1872#2036#1" />
+            <element signature="e#2042#2492#1" />
+            <element signature="docComment;method#calculateBM25Grade#0;class#BM25Engine#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app.config">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="1" column="14" lean-forward="true" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/SearchEngineTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/thienthn/core/algorithm/SearchEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="96" column="34" selection-start-line="96" selection-start-column="34" selection-end-line="96" selection-end-column="34" />
-          <folding>
-            <element signature="docComment;method#train#0;class#SearchEngine#0" />
-            <element signature="method#train#0;class#SearchEngine#0" />
-            <element signature="e#1085#1333#0" />
-            <element signature="e#1366#1481#0" />
-            <element signature="docComment;method#train#1;class#SearchEngine#0" />
-            <element signature="method#train#1;class#SearchEngine#0" />
-            <element signature="e#1775#2038#0" />
-            <element signature="e#2071#2134#0" />
-            <element signature="e#2157#2197#0" />
-            <element signature="docComment;method#loadModel#0;class#SearchEngine#0" />
-            <element signature="method#loadModel#0;class#SearchEngine#0" />
-            <element signature="e#2734#2809#1" />
-            <element signature="docComment;method#getWordSegments#0;class#SearchEngine#0" />
-            <element signature="docComment;method#sortProducts#0;class#SearchEngine#0" />
-            <element signature="method#sortProducts#0;class#SearchEngine#0" />
-            <element signature="e#4554#4710#1" />
-            <element signature="method#excuseQueries#0;class#SearchEngine#0" />
-            <element signature="e#4989#5170#1" />
-            <element signature="docComment;method#findProducts#0;class#SearchEngine#0" />
-            <element signature="method#findProducts#0;class#SearchEngine#0" />
-            <element signature="e#5549#5609#1" />
-            <element signature="e#5615#5683#1" />
-            <element signature="docComment;method#findProductsUsingReverseIndex#0;class#SearchEngine#0" />
-            <element signature="method#findProductsUsingReverseIndex#0;class#SearchEngine#0" />
-            <element signature="e#6135#7504#1" />
-            <element signature="e#6149#6215#0" />
-            <element signature="e#6507#7494#1" />
-            <element signature="e#6733#7480#1" />
-            <element signature="e#7157#7268#1" />
-            <element signature="docComment;method#findProductsUsingBM25#0;class#SearchEngine#0" />
-            <element signature="method#findProductsUsingBM25#0;class#SearchEngine#0" />
-            <element signature="e#7897#7983#1" />
-            <element signature="e#8189#8332#0" />
-            <element signature="e#8444#10143#1" />
-            <element signature="e#8656#10133#1" />
-            <element signature="e#8832#8936#0" />
-            <element signature="e#9202#9366#1" />
-            <element signature="e#9372#9822#1" />
-            <element signature="docComment;method#calculateBM25Grade#0;class#SearchEngine#0" />
-            <element signature="method#calculateBM25Grade#0;class#SearchEngine#0" />
-          </folding>
+        <state relative-caret-position="493">
+          <caret line="60" column="19" selection-start-line="60" selection-start-column="19" selection-end-line="60" selection-end-column="19" />
         </state>
       </provider>
     </entry>

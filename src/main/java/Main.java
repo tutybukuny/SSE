@@ -1,4 +1,5 @@
 import org.apache.log4j.Logger;
+import thienthn.core.algorithm.EngineManger;
 import thienthn.core.algorithm.SearchEngine;
 import thienthn.core.common.ConfigurationManager;
 
@@ -6,6 +7,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -17,6 +19,7 @@ public class Main {
     final static Logger LOGGER = Logger.getLogger(Main.class);
 
     private static SearchEngine engine = null;
+    private static EngineManger engineManger = null;
 
     public static void main(String[] args) {
         try {
@@ -28,8 +31,12 @@ public class Main {
         boolean isTrained = false;
 
         try {
-            engine = new SearchEngine();
-            engine.loadModel();
+            engineManger = new EngineManger();
+            engineManger.loadModel();
+            if(ConfigurationManager.BM25_ALGORITHM)
+                engine = engineManger.getBm25Engine();
+            else
+                engine = engineManger.getReverseIndexEngine();
             isTrained = true;
         } catch (IOException e) {
             LOGGER.error("cannot load model file", e);
@@ -51,7 +58,14 @@ public class Main {
             System.out.println("3. train this engine");
             System.out.println("0. turn off this engine");
 
-            int cmd = console.nextInt();
+            int cmd;
+            try {
+                cmd = console.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Please choose one of above options!");
+                console.nextLine();
+                continue;
+            }
             console.nextLine();
             if (cmd == 1)
                 inputQuery(console);
@@ -74,7 +88,7 @@ public class Main {
             return;
         }
 
-        ArrayList<String> foundedProducts = engine.findProducts(cmd, true);
+        ArrayList<String> foundedProducts = engine.findProducts(cmd);
         if (foundedProducts == null || foundedProducts.isEmpty())
             System.out.println("not found any matched product!");
         else {
@@ -102,7 +116,7 @@ public class Main {
 
         System.out.println("Please wait while the engine is running!");
         try {
-            engine.excuseQueries(queryFile, destinationFolder, ConfigurationManager.BM25_ALGORITHM);
+            engine.excuseQueries(queryFile, destinationFolder);
             System.out.println("Engine has done its process! You can check the results now!");
         } catch (IOException e) {
             LOGGER.error("something went wrong:", e);
@@ -112,6 +126,11 @@ public class Main {
     public static boolean trainEngine(Scanner console) {
         System.out.print("Please input the data file path to train it: ");
         String dataFilePath = console.next();
-        return engine.train(dataFilePath);
+        boolean result = engineManger.train(dataFilePath);
+        if(ConfigurationManager.BM25_ALGORITHM)
+            engine = engineManger.getBm25Engine();
+        else
+            engine = engineManger.getReverseIndexEngine();
+        return result;
     }
 }

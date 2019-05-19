@@ -1,20 +1,21 @@
 import org.junit.Assert;
 import org.junit.Test;
+import thienthn.core.algorithm.EngineManger;
 import thienthn.core.algorithm.SearchEngine;
 import thienthn.core.common.ConfigurationManager;
 
 import java.io.File;
 import java.io.IOException;
 
-public class SearchEngineTest {
-    SearchEngine engine = new SearchEngine();
+public class EngineManagerTest {
+    EngineManger engineManger = new EngineManger();
 
     @Test
     public void testTrainMethod() {
         String dataPath = "src/main/not_existed_file.txt";
-        Assert.assertFalse(engine.train(dataPath));
+        Assert.assertFalse(engineManger.train(dataPath));
         dataPath = "src/main/resources/product_names.txt";
-        Assert.assertTrue(engine.train(dataPath));
+        Assert.assertTrue(engineManger.train(dataPath));
     }
 
     @Test
@@ -24,7 +25,7 @@ public class SearchEngineTest {
         model.renameTo(tempModel);
         boolean pass = false;
         try {
-            engine.loadModel();
+            engineManger.loadModel();
         } catch (IOException e) {
             pass = true;
         } catch (ClassNotFoundException e) {
@@ -37,7 +38,7 @@ public class SearchEngineTest {
         tempModel.renameTo(model);
         pass = true;
         try {
-            engine.loadModel();
+            engineManger.loadModel();
         } catch (IOException e) {
             pass = false;
             e.printStackTrace();
